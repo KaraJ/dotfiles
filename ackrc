@@ -1,0 +1,42 @@
+# Markdown http://daringfireball.net/projects/markdown/
+--type-add=markdown:ext:mdwn,mdown,md,mkd,mkdn,markdown
+
+# Ignore ctags files
+--ignore-file=match:tags
+
+# Gettext http://www.gnu.org/software/gettext/
+--type-add=gettext:ext:po,pot
+
+# Kid Template
+--type-add=kid:ext:kid
+
+# PDF File
+--type-add=pdf:ext:pdf
+--nopdf
+
+# SVG File
+--type-add=svg:ext:svg
+--nosvg
+
+# Adobe Illustrator files
+--type-add=ai:ext:ai
+--noai
+
+# Mailbox Files
+--type-add=mbox:ext:mbox
+--nombox
+
+--type-add=eps:ext:eps
+--noeps
+
+--type-add=graffle:ext:graffle
+--nograffle
+
+--type-add=log:ext:log
+--nolog
+
+# Only search with case sensitivity if there is mixed case
+--smart-case
+
+# Follow symlinks
+--follow
