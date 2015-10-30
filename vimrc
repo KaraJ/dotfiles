@@ -11,7 +11,15 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Recommended by NeoBundle
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc.vim', {
+\ 'build' : {
+\     'windows' : 'tools\\update-dll-mingw',
+\     'cygwin' : 'make -f make_cygwin.mak',
+\     'mac' : 'make -f make_mac.mak',
+\     'linux' : 'make',
+\     'unix' : 'gmake',
+\    },
+\ }
 
 " GitHub Repos
 NeoBundle "airblade/vim-gitgutter"
@@ -158,7 +166,9 @@ autocmd FileType html,xml setlocal tabstop=2
 let g:vim_markdown_folding_disabled=1
 
 " Syntastic Plugin
+let g:syntastic_mode_map = { "mode": "passive" }
 let g:syntastic_python_checkers = ["python", "pep8", "pylint"]
+let g:syntastic_python_pep8_args='--ignore=E501'
 
 " Color and syntax
 let g:solarized_termcolors = 16
@@ -207,7 +217,8 @@ nmap <Leader>hp <Plug>GitGutterPrevHunk
 
 " Shortcut mappings
 nnoremap <leader>mm :NumbersToggle<CR>
-nnoremap <leader>er :Errors<CR>
+nnoremap <leader>er :SyntasticCheck<CR>:Errors<CR>
+nnoremap <leader>ec :SyntasticCheck<CR>
 nnoremap <leader>en :lnext<CR>
 nnoremap <leader>ep :lprev<CR>
 
