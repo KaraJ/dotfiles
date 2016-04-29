@@ -24,7 +24,8 @@ NeoBundle 'Shougo/vimproc.vim', {
 " GitHub Repos
 NeoBundle "airblade/vim-gitgutter"
 NeoBundle "altercation/vim-colors-solarized"
-NeoBundle "bling/vim-airline"
+NeoBundle "vim-airline/vim-airline"
+NeoBundle "vim-airline/vim-airline-themes"
 NeoBundle "bronson/vim-trailing-whitespace"
 NeoBundle "fisadev/vim-isort"
 NeoBundle "majutsushi/tagbar"
@@ -168,25 +169,15 @@ let g:vim_markdown_folding_disabled=1
 " Syntastic Plugin
 let g:syntastic_mode_map = { "mode": "passive" }
 let g:syntastic_python_checkers = ["python", "pep8", "pylint"]
-let g:syntastic_python_pep8_args='--ignore=E501'
+let g:syntastic_python_pep8_args='--ignore=E501,E402'
 
 " Color and syntax
-let g:solarized_termcolors = 16
-let g:solarized_termtrans = 1
 colorscheme solarized
 
 " Airline Plugin
 set laststatus=2
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-let g:airline_left_sep          = '⮀'
-let g:airline_left_alt_sep      = '⮁'
-let g:airline_right_sep         = '⮂'
-let g:airline_right_alt_sep     = '⮃'
-let g:airline_symbols.branch    = '⭠'
-let g:airline_symbols.readonly  = '⭤'
-let g:airline_symbols.linenr    = '⭡'
+let g:airline_powerline_fonts = 1
+let g:airline_detect_spell = 0
 
 " Gundo Plugin
 let g:gundo_preview_bottom = 1
@@ -198,7 +189,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
 " Fuzzy Finder Plugin
-let g:fuf_coveragefile_exclude ='\v\~$|\.(o|exe|dll|alk|bak|orig|swp|bz2|gz|wav)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
+let g:fuf_coveragefile_exclude ='\v\~$|\.(o|pyc|exe|dll|alk|bak|orig|swp|bz2|gz|wav)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 " Isort Plugin
 nnoremap <leader>i :Isort<CR>
