@@ -198,7 +198,7 @@ nnoremap <leader>i :Isort<CR>
 let g:gitgutter_realtime=0
 let g:gitgutter_map_keys=0
 nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterRevertHunk
+nmap <Leader>hu <Plug>GitGutterUndoHunk
 nmap <Leader>hn <Plug>GitGutterNextHunk
 nmap <Leader>hp <Plug>GitGutterPrevHunk
 
