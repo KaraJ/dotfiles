@@ -1,59 +1,40 @@
 " ============================================================================
-" NeoBundle
+" Vim-Plug
 " ============================================================================
 if has('vim_starting')
     set nocompatible               " Be iMproved
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Recommended by NeoBundle
-NeoBundle 'Shougo/vimproc.vim', {
-\ 'build' : {
-\     'windows' : 'tools\\update-dll-mingw',
-\     'cygwin' : 'make -f make_cygwin.mak',
-\     'mac' : 'make -f make_mac.mak',
-\     'linux' : 'make',
-\     'unix' : 'gmake',
-\    },
-\ }
+call plug#begin('~/.vim/plugged')
 
 " GitHub Repos
-NeoBundle "airblade/vim-gitgutter"
-NeoBundle "altercation/vim-colors-solarized"
-NeoBundle "vim-airline/vim-airline"
-NeoBundle "vim-airline/vim-airline-themes"
-NeoBundle "bronson/vim-trailing-whitespace"
-NeoBundle "fisadev/vim-isort"
-NeoBundle "majutsushi/tagbar"
-NeoBundle "myusuf3/numbers.vim"
-NeoBundle "othree/xml.vim"
-NeoBundle "scrooloose/nerdtree"
-NeoBundle "scrooloose/syntastic"
-NeoBundle "sjbach/lusty"
-NeoBundle "sjl/gundo.vim"
-NeoBundle "tpope/vim-abolish"
-NeoBundle "tpope/vim-commentary"
-NeoBundle "tpope/vim-fugitive"
-NeoBundle "tpope/vim-markdown"
-NeoBundle "tpope/vim-repeat"
-NeoBundle "tpope/vim-surround"
-NeoBundle "tpope/vim-unimpaired"
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'fisadev/vim-isort'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+Plug 'majutsushi/tagbar'
+Plug 'myusuf3/numbers.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'sjbach/lusty'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-scripts/NSIS-syntax-highlighting'
 
-" VimScripts Repos
-NeoBundle "NSIS-syntax-highlighting"
-NeoBundle "L9"
-NeoBundle "FuzzyFinder"
-
-call neobundle#end()
+call plug#end()
 
 filetype plugin indent on
-
-" Installation check.
-NeoBundleCheck
 
 " ============================================================================
 " Basic setup for vim that does not involve any plugins.
@@ -70,6 +51,9 @@ set linebreak
 
 " Hide buffers instead of closing
 set hidden
+
+" Backspace
+set backspace=indent,eol,start
 
 " Searching
 set incsearch
@@ -150,12 +134,13 @@ endfunction
 
 augroup clear_whitespace
     autocmd!
-    autocmd FileType python,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :FixWhitespace
-    autocmd FileType python,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :call TrimEndLines()
+    autocmd FileType python,xml,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :FixWhitespace
+    autocmd FileType python,xml,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :call TrimEndLines()
 augroup END
 
 autocmd BufRead,BufNewFile *.dash setf dosini
 
+autocmd FileType html,xml setlocal expandtab
 autocmd FileType html,xml setlocal shiftwidth=2
 autocmd FileType html,xml setlocal tabstop=2
 
@@ -169,6 +154,7 @@ let g:vim_markdown_folding_disabled=1
 " Syntastic Plugin
 let g:syntastic_mode_map = { "mode": "passive" }
 let g:syntastic_python_checkers = ["python", "pep8", "pylint"]
+let g:syntastic_lua_checkers = ["luac"]
 let g:syntastic_python_pep8_args='--ignore=E501,E402'
 
 " Color and syntax
@@ -187,9 +173,6 @@ let g:gundo_help = 0
 " Tagbar Plugin
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
-
-" Fuzzy Finder Plugin
-let g:fuf_coveragefile_exclude ='\v\~$|\.(o|pyc|exe|dll|alk|bak|orig|swp|bz2|gz|wav)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])'
 
 " Isort Plugin
 nnoremap <leader>i :Isort<CR>
@@ -219,6 +202,6 @@ nnoremap <F2> :set invpaste<cr>
 nnoremap <F3> :FixWhitespace<cr>
 nnoremap <F4> :GundoToggle<CR>
 nnoremap <F5> :TagbarToggle<CR>
-nnoremap <F6> :FufCoverageFile<CR>
+nnoremap <F6> :FZF<CR>
     "    <F10> Caught by gnome
     "    <F11> Caught by gnome
