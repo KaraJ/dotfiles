@@ -5,9 +5,12 @@ ln -s `pwd`/tmux.conf ~/.tmux.conf
 ln -s `pwd`/vimrc ~/.vimrc
 ln -s `pwd`/ackrc ~/.ackrc
 
-# Install NeoBundle
-curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh > neobundle-install.sh
-sh ./neobundle-install.sh
+mkdir -p ~/.vim/tmp/
+mkdir -p ~/.vim/history/
+
+# Install Vim-Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 # Setup git config
 git config --global rerere.enabled true
