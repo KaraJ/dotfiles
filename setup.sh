@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# Install some packages
+if command -v apt-get 2>/dev/null >/dev/null
+then
+    sudo apt-get update -qq
+    sudo apt-get install vim curl git -y -qq
+fi
+
+# Setup the custom command prompt
+CONFIG_LINE="source `pwd`/custom_prompt"
+BASH_CONFIG="$HOME/.bash_profile"
+if ! test -f $BASH_CONFIG
+then
+    BASH_CONFIG="$HOME/.bashrc"
+fi
+
+if ! grep -Fxq "$CONFIG_LINE" $BASH_CONFIG 2>/dev/null
+then
+    echo "$CONFIG_LINE" >> $BASH_CONFIG
+    source $BASH_CONFIG
+fi
+
 # Link the files
 ln -fs `pwd`/tmux.conf ~/.tmux.conf
 ln -fs `pwd`/vimrc ~/.vimrc
