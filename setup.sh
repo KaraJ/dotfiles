@@ -1,16 +1,19 @@
 #!/bin/bash
 
 # Link the files
-ln -s `pwd`/tmux.conf ~/.tmux.conf
-ln -s `pwd`/vimrc ~/.vimrc
-ln -s `pwd`/ackrc ~/.ackrc
+ln -fs `pwd`/tmux.conf ~/.tmux.conf
+ln -fs `pwd`/vimrc ~/.vimrc
+ln -fs `pwd`/ackrc ~/.ackrc
 
 mkdir -p ~/.vim/tmp/
 mkdir -p ~/.vim/history/
 
 # Install Vim-Plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+if ! test -f $HOME/.vim/autoload/plug.vim
+then
+    curl -sfLo $HOME/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
 
 # Setup git config
 git config --global rerere.enabled true
