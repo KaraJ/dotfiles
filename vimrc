@@ -7,10 +7,12 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'ekalinin/Dockerfile.vim'
 Plug 'fisadev/vim-isort'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'
+Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'myusuf3/numbers.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
