@@ -140,6 +140,7 @@ autocmd BufRead,BufNewFile *.dash setf dosini
 autocmd FileType html,xml setlocal expandtab
 autocmd FileType html,xml setlocal shiftwidth=2
 autocmd FileType html,xml setlocal tabstop=2
+autocmd FileType make setlocal noexpandtab
 
 " ============================================================================
 " Plugins
