@@ -11,6 +11,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'fisadev/vim-isort'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'kergoth/vim-bitbake'
 Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'myusuf3/numbers.vim'
