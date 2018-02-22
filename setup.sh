@@ -47,7 +47,7 @@ git config --global alias.ci commit
 git config --global alias.st status
 git config --global alias.co checkout
 git config --global alias.b branch
-git config --global alias.f "fetch -p --all"
+git config --global alias.f "fetch --prune --all --tags"
 git config --global alias.diffstat "diff --stat -r"
 git config --global alias.g "log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cd) %C(bold blue)<%an>%Creset' --abbrev-commit --date=short --all"
 git config --global alias.ignored "ls-files --others -i --exclude-standard"
