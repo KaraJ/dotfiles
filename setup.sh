@@ -4,7 +4,7 @@
 if command -v apt-get 2>/dev/null >/dev/null
 then
     sudo apt-get update -qq
-    sudo apt-get install vim curl git -y -qq
+    sudo apt-get install vim-nox curl git -y -qq
 fi
 
 # Setup the custom command prompt
@@ -35,6 +35,9 @@ then
     curl -sfLo $HOME/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# Install Vim Plugins
+vim -c "PlugInstall" -c "qall"
 
 # Setup git config
 git config --global rerere.enabled true
