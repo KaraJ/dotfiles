@@ -14,6 +14,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'kergoth/vim-bitbake'
 Plug 'majutsushi/tagbar'
 Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'isRuslan/vim-es6'
 Plug 'myusuf3/numbers.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
@@ -109,6 +110,8 @@ endif
 " Highlight 80 Characters wide
 set colorcolumn=80
 
+autocmd FileType javascript setlocal colorcolumn=100
+
 " Directories
 set dir=~/.vim/tmp
 set backupdir=~/.vim/tmp
@@ -132,8 +135,8 @@ endfunction
 
 augroup clear_whitespace
     autocmd!
-    autocmd FileType python,xml,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :FixWhitespace
-    autocmd FileType python,xml,markdown,vim,lua,dosini autocmd BufWritePre <buffer> :call TrimEndLines()
+    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript autocmd BufWritePre <buffer> :FixWhitespace
+    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript autocmd BufWritePre <buffer> :call TrimEndLines()
 augroup END
 
 autocmd BufRead,BufNewFile *.dash setf dosini
