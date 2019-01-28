@@ -155,10 +155,10 @@ let g:vim_markdown_folding_disabled=1
 
 " Syntastic Plugin
 let g:syntastic_mode_map = { "mode": "passive" }
-let g:syntastic_python_checkers = ["python", "pep8", "pylint"]
+let g:syntastic_python_checkers = ["python3", "pycodestyle", "pylint"]
 let g:syntastic_lua_checkers = ["luac"]
 let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_python_pep8_args='--ignore=E501,E402'
+let g:syntastic_python_pycodestyle_args='--ignore=E501,E402'
 
 " Color and syntax
 silent! colorscheme solarized
