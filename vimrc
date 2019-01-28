@@ -111,6 +111,7 @@ endif
 " Highlight 80 Characters wide
 set colorcolumn=80
 
+autocmd FileType cucumber   setlocal colorcolumn=10
 autocmd FileType javascript setlocal colorcolumn=100
 
 " Directories
@@ -136,15 +137,15 @@ endfunction
 
 augroup clear_whitespace
     autocmd!
-    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript autocmd BufWritePre <buffer> :FixWhitespace
-    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript autocmd BufWritePre <buffer> :call TrimEndLines()
+    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript,cucumber autocmd BufWritePre <buffer> :FixWhitespace
+    autocmd FileType python,xml,markdown,vim,lua,dosini,javascript,cucumber autocmd BufWritePre <buffer> :call TrimEndLines()
 augroup END
 
 autocmd BufRead,BufNewFile *.dash setf dosini
 
 autocmd FileType html,xml setlocal expandtab
-autocmd FileType html,xml setlocal shiftwidth=2
-autocmd FileType html,xml setlocal tabstop=2
+autocmd FileType html,xml,cucumber setlocal shiftwidth=2
+autocmd FileType html,xml,cucumber setlocal tabstop=2
 autocmd FileType make setlocal noexpandtab
 
 " ============================================================================
@@ -160,6 +161,8 @@ let g:syntastic_python_checkers = ["python3", "pycodestyle", "pylint"]
 let g:syntastic_lua_checkers = ["luac"]
 let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_python_pycodestyle_args='--ignore=E501,E402'
+let g:syntastic_cucumber_checkers        = ['cucumber']
+let g:syntastic_cucumber_cucumber_args   = '--profile syntastic'
 
 " Color and syntax
 silent! colorscheme solarized
