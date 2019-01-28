@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 " GitHub Repos
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
+Plug 'brodie/cram', {'do': 'mkdir -p syntax; cp -f contrib/*.vim syntax/'}
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go'}
@@ -143,6 +144,7 @@ augroup clear_whitespace
 augroup END
 
 autocmd BufRead,BufNewFile *.dash setf dosini
+autocmd BufRead,BufNewFile *.t set filetype=cram
 
 autocmd FileType html,xml setlocal expandtab
 autocmd FileType html,xml,cucumber setlocal shiftwidth=2
