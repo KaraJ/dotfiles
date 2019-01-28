@@ -161,7 +161,7 @@ let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_python_pep8_args='--ignore=E501,E402'
 
 " Color and syntax
-colorscheme solarized
+silent! colorscheme solarized
 
 " Airline Plugin
 set laststatus=2
