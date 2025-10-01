@@ -187,10 +187,10 @@ nnoremap <leader>i :Isort<CR>
 " Git Gutter
 let g:gitgutter_realtime=0
 let g:gitgutter_map_keys=0
-nmap <Leader>ha <Plug>GitGutterStageHunk
-nmap <Leader>hu <Plug>GitGutterUndoHunk
-nmap <Leader>hn <Plug>GitGutterNextHunk
-nmap <Leader>hp <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>(GitGutterStageHunk)
+nmap <Leader>hu <Plug>(GitGutterUndoHunk)
+nmap <Leader>hn <Plug>(GitGutterNextHunk)
+nmap <Leader>hp <Plug>(GitGutterPrevHunk)
 
 " ============================================================================
 " Shortcuts and Key Mappings
