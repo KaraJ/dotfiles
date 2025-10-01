@@ -30,8 +30,7 @@ Plug 'tpope/vim-markdown'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'vim-scripts/NSIS-syntax-highlighting'
 
 call plug#end()
@@ -170,10 +169,8 @@ let g:syntastic_cucumber_cucumber_args   = '--profile syntastic'
 " Color and syntax
 silent! colorscheme solarized8
 
-" Airline Plugin
+" Lightline Plugin
 set laststatus=2
-let g:airline_powerline_fonts = 1
-let g:airline_detect_spell = 0
 
 " Gundo Plugin
 let g:gundo_preview_bottom = 1
