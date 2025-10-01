@@ -5,7 +5,7 @@ call plug#begin('~/.vim/plugged')
 
 " GitHub Repos
 Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'brodie/cram', {'do': 'mkdir -p syntax; cp -f contrib/*.vim syntax/'}
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'ekalinin/Dockerfile.vim'
@@ -168,7 +168,7 @@ let g:syntastic_cucumber_checkers        = ['cucumber']
 let g:syntastic_cucumber_cucumber_args   = '--profile syntastic'
 
 " Color and syntax
-silent! colorscheme solarized
+silent! colorscheme solarized8
 
 " Airline Plugin
 set laststatus=2
